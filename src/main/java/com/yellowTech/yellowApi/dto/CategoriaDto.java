@@ -3,10 +3,11 @@ package com.yellowTech.yellowApi.dto;
 import lombok.Data;
 
 @Data
-public class AutorDto {
+public class CategoriaDto {
 
     private Long id;
     private String nome;
-    private String descricao;
+    private Long categoriaPaiId;
+
 
 }
