@@ -3,6 +3,7 @@ package com.yellowTech.yellowApi.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -28,7 +29,7 @@ public class CategoriaEntity {
     @ManyToMany(mappedBy = "categorias")
     private List<PostagemEntity> postagens = new ArrayList<>();
 
-    @OneToMany(mappedBy = "cstegoriaPai, cascade = CascadeType.ALL")
+    @OneToMany(mappedBy = "categoriaPai", cascade = CascadeType.ALL)
     private List<CategoriaEntity> subCategorias = new ArrayList<>();
 
     @ManyToOne

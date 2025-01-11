@@ -2,9 +2,7 @@ package com.yellowTech.yellowApi.entity;
 
 import java.sql.Date;
 import java.util.List;
-import java.util.TimeZone;
 
-import javax.xml.crypto.Data;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -37,7 +35,7 @@ public class PostagemEntity {
 
     @ManyToOne
     @JoinColumn(name = "autor_id")
-    private String autor;
+    private AutorEntity autor;
 
     @ManyToMany
     @JoinTable(name = "postagem_categoria", joinColumns = @JoinColumn(name = "postagem_id"), inverseJoinColumns = @JoinColumn(name = "categoria_id"))
