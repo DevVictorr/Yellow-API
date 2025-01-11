@@ -23,29 +23,24 @@ import lombok.Setter;
 @Setter
 public class PostagemEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long id;
+    private String titulo;
 
-private String titulo;
+    @Lob
+    private String conteudo;
 
-@Lob
-private String conteudo;
+    private Date data;
+    private int visualizacoes;
 
-private Date data;
-private int visualizacoes;
+    @ManyToOne
+    @JoinColumn(name = "autor_id")
+    private String autor;
 
-@ManyToOne
-@JoinColumn(name = "autor_id")
-private String autor;
-
-@ManyToMany
-@JoinTable(name = "postagem_categoria", joinColumns = @JoinColumn(name = "postagem_id"),inverseJoinColumns = @JoinColumn (name = "categoria_id"))
-private List<CategoriaEntity> categorias;
-
-
-
-
+    @ManyToMany
+    @JoinTable(name = "postagem_categoria", joinColumns = @JoinColumn(name = "postagem_id"), inverseJoinColumns = @JoinColumn(name = "categoria_id"))
+    private List<CategoriaEntity> categorias;
 
 }

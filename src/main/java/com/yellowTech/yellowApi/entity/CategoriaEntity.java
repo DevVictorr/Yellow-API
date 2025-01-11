@@ -19,23 +19,20 @@ import lombok.Setter;
 @Setter
 public class CategoriaEntity {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String nome;
 
-
     @ManyToMany(mappedBy = "categorias")
     private List<PostagemEntity> postagens = new ArrayList<>();
 
     @OneToMany(mappedBy = "cstegoriaPai, cascade = CascadeType.ALL")
-    private List<CategoriaEntity>subCategorias = new ArrayList<>();
+    private List<CategoriaEntity> subCategorias = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "categoria_pai_id")
     private CategoriaEntity categoriaPai;
-
 
 }
